@@ -43,6 +43,7 @@ public class MyLinkedlist {
     public INode pop(){
         INode tempNode = this.head;
         this.head = tempNode.getNext();
+        System.out.println(tempNode);
         return tempNode;
     }
     public INode delete(int value){

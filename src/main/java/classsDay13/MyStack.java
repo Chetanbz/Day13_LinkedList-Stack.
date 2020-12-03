@@ -1,7 +1,7 @@
 package classsDay13;
 
 public class MyStack{
-    private final MyLinkedlist myLinkedList;
+    public static MyLinkedlist myLinkedList;
 
     public MyStack() {
         this.myLinkedList = new MyLinkedlist();
@@ -17,5 +17,18 @@ public class MyStack{
 
     public INode peak() {
         return myLinkedList.head;
+    }
+    public INode pop(){
+        return  myLinkedList.pop();
+    }
+    public void popAll(){
+        while(true) {
+            if (myLinkedList.head == myLinkedList.tail) {
+                myLinkedList.head = null;
+                myLinkedList.tail = null;
+                break;
+            }
+            INode popNode = myLinkedList.pop();
+        }
     }
 }
