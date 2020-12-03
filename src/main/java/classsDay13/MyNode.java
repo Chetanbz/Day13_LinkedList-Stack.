@@ -24,4 +24,21 @@ public class MyNode<K> implements INode<K> {
     public void setNext(INode next) {
         this.next = next;
     }
+
+    public int compareTo(Object o) {
+        MyNode myNode = (MyNode)o;
+
+        if (this.key == myNode.key) {
+            return 0;
+        }
+        else if((int)this.key > (int)myNode.key) {
+            return +1;
+        }
+        else {
+            return -1;
+        }
+    }
+
+
+
 }
