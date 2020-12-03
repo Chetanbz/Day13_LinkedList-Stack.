@@ -14,10 +14,11 @@ public class MyQueTest {
         myQue.enqueue(mySecondNode);
         myQue.enqueue(myThirdNode);
         myQue.printQue();
+        myQue.dequeue();
+        myQue.printQue();
 
-        boolean result = myQue.myLinkedList.head.equals(myFirstNode)  &&
-                         myQue.myLinkedList.head.getNext().equals(mySecondNode)&&
-                         myQue.myLinkedList.tail.equals(myThirdNode);
+        boolean result = myQue.myLinkedList.head.equals(mySecondNode)  &&
+                         myQue.myLinkedList.head.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
 
     }
