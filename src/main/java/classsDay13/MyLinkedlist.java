@@ -10,7 +10,7 @@ public class MyLinkedlist {
 
     }
 
-    public void add(INode  newNode) {
+    public  void add(INode newNode) {
         if(this.tail == null){
             this.tail =newNode;
         }
@@ -23,6 +23,7 @@ public class MyLinkedlist {
 
         }
     }
+
     public void append(INode  newNode) {
         if(this.head == null){
             this.head =newNode;
@@ -112,5 +113,19 @@ public class MyLinkedlist {
         myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
     }
+    /*public int compareTo(INode Node) {
+        Employee e = (Employee)o;
+
+        if (this.id == e.id) {
+            return 0;
+        }
+        else if(this.id > e.id ) {
+            return +1;
+        }
+        else {
+            return -1;
+        }
+
+    }*/
 
 }
