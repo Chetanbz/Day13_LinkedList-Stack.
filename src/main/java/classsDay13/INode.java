@@ -1,12 +1,12 @@
 package classsDay13;
 
-public interface INode<K> extends Comparable{
+public interface INode<K> {
     K getKey();
     void setKey(K key);
-    @Override
-    public int compareTo(Object o);
+    //@Override
+   // public int compareTo(Object o);
 
-    INode getNext();
-    void setNext(INode next);
+    INode<K> getNext();
+    void setNext(INode<K> next);
 
 }

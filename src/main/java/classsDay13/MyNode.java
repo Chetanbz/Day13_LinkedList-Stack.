@@ -17,6 +17,8 @@ public class MyNode<K> implements INode<K> {
         this.key = key;
     }
 
+
+
     public INode getNext() {
         return next;
     }
@@ -24,21 +26,17 @@ public class MyNode<K> implements INode<K> {
     public void setNext(INode next) {
         this.next = next;
     }
-
+    /*@Override
     public int compareTo(Object o) {
         MyNode myNode = (MyNode)o;
-
-        if (this.key == myNode.key) {
-            return 0;
-        }
-        else if((int)this.key > (int)myNode.key) {
-            return +1;
-        }
-        else {
+        if ((int)this.key> (int)myNode.getKey()) {
             return -1;
         }
-    }
-
-
-
+        else if ((int)this.key < (int)myNode.getKey()) {
+            return +1;
+        }
+        else{
+            return  0;
+        }
+    }*/
 }

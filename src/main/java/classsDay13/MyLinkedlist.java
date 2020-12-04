@@ -1,8 +1,8 @@
 package classsDay13;
 
-public class MyLinkedlist {
-    public INode head;
-    public INode tail;
+public class MyLinkedlist<K> {
+    public INode<K> head;
+    public INode<K> tail;
 
     public MyLinkedlist() {
         this.head = null;
@@ -10,7 +10,7 @@ public class MyLinkedlist {
 
     }
 
-    public void add(INode  newNode) {
+    public void add(INode<K>  newNode) {
         if(this.tail == null){
             this.tail =newNode;
         }
@@ -23,7 +23,7 @@ public class MyLinkedlist {
 
         }
     }
-    public void append(INode  newNode) {
+    public void append(INode<K>  newNode) {
         if(this.head == null){
             this.head =newNode;
         }
@@ -34,19 +34,19 @@ public class MyLinkedlist {
             this.tail = newNode;
         }
     }
-    public void insert(INode prevNode,INode newNode){
+    public void insert(INode<K> prevNode,INode<K> newNode){
         INode tempNode = prevNode.getNext();
         prevNode.setNext(newNode) ;
         newNode.setNext(tempNode);
     }
-    public INode pop(){
-        INode tempNode = this.head;
+    public INode<K> pop(){
+        INode<K> tempNode = this.head;
         this.head = tempNode.getNext();
         return tempNode;
     }
-    public INode delete(int value){
-        INode deleteNode = null;
-        INode tempNode = this.head;
+    public INode<K> delete(int value){
+        INode<K> deleteNode = null;
+        INode<K> tempNode = this.head;
         if(head.getKey().equals(value)) {
             deleteNode = pop();
         }
@@ -66,8 +66,8 @@ public class MyLinkedlist {
         return  deleteNode;
     }
 
-    public INode popLast(){
-        INode tempNode = head;
+    public INode<K> popLast(){
+        INode<K> tempNode = head;
          while(!(tempNode.getNext() == this.tail)){
              tempNode = tempNode.getNext() ;
          }
@@ -75,9 +75,9 @@ public class MyLinkedlist {
          tempNode = tempNode.getNext();
          return  tempNode;
     }
-    public INode search(int value){
-        INode searchedNode = null;
-        INode tempNode = head;
+    public INode<K> search(int value){
+        INode<K> searchedNode = null;
+        INode<K> tempNode = head;
         if(this.tail.getKey().equals(value)) {
             searchedNode = tail;
             return searchedNode;
@@ -93,7 +93,7 @@ public class MyLinkedlist {
     }
     public int size(){
         int count = 1;
-        INode tempNode = head;
+        INode<K> tempNode = head;
         while(tempNode.getNext() != null){
             count++;
             tempNode = tempNode.getNext();
@@ -103,7 +103,7 @@ public class MyLinkedlist {
 
     public void printMyNode(){
         StringBuffer myNodes = new StringBuffer("My Nodes: ");
-        INode tempNode = head;
+        INode<K> tempNode = head;
         while(tempNode.getNext() != null){
             myNodes.append(tempNode.getKey());
             if(!tempNode.equals(tail)) myNodes.append("->");
@@ -112,5 +112,35 @@ public class MyLinkedlist {
         myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
     }
+    public INode<K> search(K key) {
+        if(head==null)
+            return null;
+
+        INode<K> tempNode = this.head;
+        while (tempNode != null) {
+            if (tempNode.getKey().equals(key))
+                return tempNode;
+            tempNode =tempNode.getNext();
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "MyLinkedListNodes{" + head + "}";
+    }
+
+    /*    public int compareTo(Object o) {
+        INode myNode = (INode) o;
+        if ((int)this.key> (int)myNode.getKey()) {
+            return -1;
+        }
+        else if ((int)this.key < (int)myNode.getKey()) {
+            return +1;
+        }
+        else{
+            return  0;
+        }
+    }*/
 
 }
